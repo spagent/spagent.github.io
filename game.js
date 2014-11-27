@@ -601,7 +601,7 @@ Enemy.prototype = new Drawable();
  */
 function Game() {
 	/*
-	 * informacion canvas y context
+	 * informacion canvas y contexto
 	
 	 */
 	this.init = function() {
