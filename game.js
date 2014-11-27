@@ -162,14 +162,9 @@ Bullet.prototype = new Drawable();
  * .
  *
  * cuadrantes
- *     |
- *  1  |  0
- * ----+----
- *  2  |  3
- *     |
  */
 function QuadTree(boundBox, lvl) {
-	var maxObjects = 20;
+	var maxObjects = 10;
 	this.bounds = boundBox || {
 		x: 0,
 		y: 0,
@@ -405,7 +400,7 @@ function Pool(maxSize) {
 	};
 
 	/*
-	 * la nave ser golpeado por dos balas
+	 * Dos balas
 	 */
 	this.getTwo = function(x1, y1, speed1, x2, y2, speed2) {
 		if(!pool[size - 1].alive && !pool[size - 2].alive) {
@@ -419,7 +414,7 @@ function Pool(maxSize) {
 	 */
 	this.animate = function() {
 		for (var i = 0; i < size; i++) {
-			// solo dibnuja una bala que ya no este viva
+			// solo dibuja una bala que ya no este viva
 			if (pool[i].alive) {
 				if (pool[i].draw()) {
 					pool[i].clear();
@@ -479,8 +474,8 @@ function Ship() {
 					this.x = this.canvasWidth - this.width;
 			} else if (KEY_STATUS.up) {
 				this.y -= this.speed
-				if (this.y <= this.canvasHeight/4*3)
-					this.y = this.canvasHeight/4*3;
+				if (this.y <= this.canvasHeight)//4*3)
+					this.y = this.canvasHeight;//4*3;
 			} else if (KEY_STATUS.down) {
 				this.y += this.speed
 				if (this.y >= this.canvasHeight - this.height)
@@ -761,7 +756,7 @@ function checkReadyState() {
  * sonidos
  */
 function SoundPool(maxSize) {
-	var size = maxSize; // Max bullets allowed in the pool
+	var size = maxSize; // Cantidad maxima de balas
 	var pool = [];
 	this.pool = pool;
 	var currSound = 0;
@@ -865,10 +860,10 @@ for (code in KEY_CODES) {
   KEY_STATUS[KEY_CODES[code]] = false;
 }
 /**
- * Seventos tecla
+ * Eventos tecla
  */
 document.onkeydown = function(e) {
-	// Firefox and opera use charCode instead of keyCode to
+	// Firefox y opera ultizan charCode en lugar de keyCode también
 	
 	var keyCode = (e.keyCode) ? e.keyCode : e.charCode;
   if (KEY_CODES[keyCode]) {
