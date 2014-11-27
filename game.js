@@ -475,7 +475,7 @@ function Ship() {
 			} else if (KEY_STATUS.up) {
 				this.y -= this.speed
 				if (this.y >= this.canvasHeight - this.height)
-					this.y = this.canvasHeight;
+					this.y = this.canvasHeight/2;
 			} else if (KEY_STATUS.down) {
 				this.y += this.speed
 				if (this.y >= this.canvasHeight - this.height)
