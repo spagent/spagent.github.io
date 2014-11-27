@@ -474,8 +474,8 @@ function Ship() {
 					this.x = this.canvasWidth - this.width;
 			} else if (KEY_STATUS.up) {
 				this.y -= this.speed
-				if (this.y <= this.canvasHeight)//4*3)
-					this.y = this.canvasHeight;//4*3;
+				if (this.y <= this.canvasHeight*3)
+					this.y = this.canvasHeight*3;
 			} else if (KEY_STATUS.down) {
 				this.y += this.speed
 				if (this.y >= this.canvasHeight - this.height)
