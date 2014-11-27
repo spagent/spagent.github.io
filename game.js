@@ -169,7 +169,7 @@ Bullet.prototype = new Drawable();
  *     |
  */
 function QuadTree(boundBox, lvl) {
-	var maxObjects = 10;
+	var maxObjects = 20;
 	this.bounds = boundBox || {
 		x: 0,
 		y: 0,
